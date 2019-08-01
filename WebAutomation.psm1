@@ -94,7 +94,7 @@ filter Get-AutoCurl {
             # Strip NTLM authorization
             $ProcCurls[$Key] = $ProcCurls[$Key] -replace ' -H "Authorization: NTLM [^"]*"',''
             # Process nested quotes
-            $ProcCurls[$Key] = $ProcCurls[$Key] -replace '(?<!(`| -H |" --\w+ |^curl ))"(?!( -H | --|$))','`"'
+            $ProcCurls[$Key] = $ProcCurls[$Key] -replace '(?<!(`| -H |" --\w+ |^curl ))"(?!( -H | -X | --|$))','`"'
             $ProcCurls[$Key] = $ProcCurls[$Key] -replace '(?<!`)\$','`$'
             # Add curl params
             $ProcCurls[$Key] = $ProcCurls[$Key] -replace '^curl ',
